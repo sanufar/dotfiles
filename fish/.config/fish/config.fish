@@ -1,4 +1,5 @@
 if status is-interactive
+	set -gx EDITOR nvim
 end
 
 if test -d /home/linuxbrew/.linuxbrew # Linux
@@ -13,3 +14,11 @@ end
 fish_add_path -gP "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin";
 ! set -q MANPATH; and set MANPATH ''; set -gx MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH;
 ! set -q INFOPATH; and set INFOPATH ''; set -gx INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH;
+
+zoxide init fish | source
+fzf --fish | source
+set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+
+set fzf_fd_opts --hidden --max-depth 5
+
+
