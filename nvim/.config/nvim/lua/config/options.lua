@@ -60,6 +60,8 @@ vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.api.nvim_set_option("updatetime", 300)
 
+vim.o.inccommand = "split"
+
 -- vim.cmd([[
 -- set signcolumn=yes
 -- autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
@@ -223,12 +225,12 @@ vim.keymap.set("n", "L", "$")
 local set_hl = vim.api.nvim_set_hl
 
 -- Define highlight groups
-set_hl(0, "MiniFilesBorder", { fg = "#f7b7b0", bg = "#121315", bold = true })
-set_hl(0, "MiniFilesBorderModified", { fg = "#00ff00", bg = "#000000" })
-set_hl(0, "MiniFilesCursorLine", { bg = "#333333" })
+set_hl(0, "MiniFilesBorder", { fg = "#f7b7b0", bg = "none", bold = true })
+set_hl(0, "MiniFilesBorderModified", { fg = "#ffb0b0", bg = "none" })
+set_hl(0, "MiniFilesCursorLine", { bg = "none" })
 set_hl(0, "MiniFilesDirectory", { fg = "#f29585", bold = true })
-set_hl(0, "MiniFilesFile", { fg = "#dcd7ba", bg = "#121315" })
-set_hl(0, "MiniFilesNormal", { fg = "#dcdcdc", bg = "#121315" })
+set_hl(0, "MiniFilesFile", { fg = "#dcd7ba", bg = "none" })
+set_hl(0, "MiniFilesNormal", { fg = "#dcd7ba", bg = "none" })
 set_hl(0, "MiniFilesTitle", { fg = "#a89984", bold = true })
 set_hl(0, "MiniFilesTitleFocused", { fg = "#ea6962", bold = true })
 

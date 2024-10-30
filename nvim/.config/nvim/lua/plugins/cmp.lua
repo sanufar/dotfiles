@@ -7,7 +7,6 @@ return {
 		"hrsh7th/cmp-buffer",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
-		"Snikimonkd/cmp-go-pkgs",
 		"rafamadriz/friendly-snippets", -- optional, provides extra snippets
 	},
 	config = function()
@@ -59,7 +58,6 @@ return {
 				{ name = "path" },
 				{ name = "cmdline" },
 				{ name = "buffer" },
-				{ name = "go packages" },
 			},
 		})
 
