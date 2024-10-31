@@ -1,5 +1,6 @@
 if status is-interactive
 	set -gx EDITOR nvim
+	set -g fish_greeting
 end
 
 if test -d /home/linuxbrew/.linuxbrew # Linux

@@ -7,6 +7,7 @@ return {
 		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-nvim-lsp",
 	},
+
 	config = function()
 		-- Set background and border colors for floating windows
 		vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])

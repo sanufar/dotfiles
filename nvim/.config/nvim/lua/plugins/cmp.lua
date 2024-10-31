@@ -9,6 +9,7 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets", -- optional, provides extra snippets
 	},
+	       
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")

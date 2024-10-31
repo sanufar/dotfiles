@@ -23,6 +23,7 @@ vim.keymap.set("n", "<space>cd", ":cd %:p:h<cr>:pwd<cr>")
 
 -- FZF LUA
 vim.keymap.set("n", "<leader>f", "<cmd>FzfLua<cr>")
+vim.keymap.set("n", "<leader><leader>", "<cmd>FzfLua buffers<cr>")
 vim.keymap.set("n", "<leader>e", "<cmd>FzfLua files<cr>")
 vim.keymap.set("n", "<leader>sa", "<cmd>FzfLua live_grep_native<cr>")
 vim.keymap.set("n", "<leader>?", "<cmd>FzfLua oldfiles<cr>")
@@ -33,7 +34,7 @@ vim.keymap.set("n", "-", "<cmd>lua MiniFiles.open()<cr>")
 
 --lsp
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
-vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 vim.keymap.set("n", "gr", vim.lsp.buf.references)
 vim.keymap.set("n", "<leader>R", vim.lsp.buf.rename)
 vim.keymap.set({ "i" }, "<C-k>", function()
@@ -43,8 +44,6 @@ end, { silent = true, noremap = true, desc = "toggle signature" })
 vim.keymap.set("n", "<leader>d", function()
 	vim.diagnostic.open_float()
 end, { noremap = true, silent = true })
-
-vim.keymap.set("n", "gd", vim.lsp.buf.document_highlight)
 
 --SPECTRE (I.E REPLACE)
 vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
