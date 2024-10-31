@@ -1,4 +1,4 @@
-./tmux/.tmux/plugins/*
+tmux/.tmux/
 
 .DS_Store
 .AppleDouble
