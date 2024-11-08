@@ -19,6 +19,7 @@ fish_add_path -gP "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin";
 zoxide init fish | source
 fzf --fish | source
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+fish_add_path -gP /usr/local/texlive/2024/bin/universal-darwin
 
 set fzf_fd_opts --hidden --max-depth 5
 

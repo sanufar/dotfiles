@@ -1,7 +1,7 @@
 return {
 	"stevearc/conform.nvim",
 	opts = {},
-       
+
 	config = function()
 		require("conform").setup({
 			format_on_save = {
@@ -12,6 +12,7 @@ return {
 
 			formatters_by_ft = {
 				lua = { "stylua" },
+				go = { "gofmt" },
 				-- Conform will run multiple formatters sequentially
 				python = { "isort", "black" },
 				-- You can customize some of the format options for the filetype (:help conform.format)

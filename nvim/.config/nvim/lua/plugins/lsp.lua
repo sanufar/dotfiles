@@ -43,6 +43,47 @@ return {
 		local lspconfig = require("lspconfig")
 		local servers = lspconfig.util.available_servers()
 
+		local function custom_on_attach(client, bufnr)
+			-- Only attach texlab in markdown files if it's not attached by default
+			if vim.bo.filetype == "markdown" and client.name == "texlab" then
+				client.config.settings = vim.tbl_extend("force", client.config.settings, {
+					texlab = {
+						auxDirectory = ".",
+						bibtexFormatter = "texlab",
+						build = {
+							executable = "latexmk",
+							args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+							onSave = true,
+						},
+					},
+				})
+				client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+			end
+		end
+
+		-- Setup texlab with Markdown support
+		lspconfig.texlab.setup({
+			on_attach = custom_on_attach,
+			filetypes = { "tex", "markdown" }, -- Enable for tex and markdown files
+			settings = {
+				texlab = {
+					build = {
+						executable = "latexmk",
+						args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+						onSave = true,
+					},
+					forwardSearch = {
+						executable = "",
+						args = { "--synctex-forward", "%l:1:%f", "%p" },
+					},
+					latexFormatter = "latexindent",
+					latexindent = {
+						modifyLineBreaks = true,
+					},
+				},
+			},
+		})
+
 		for _, server in ipairs(servers) do
 			lspconfig[server].setup({ handlers = handlers })
 		end

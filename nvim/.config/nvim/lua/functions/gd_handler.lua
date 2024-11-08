@@ -33,4 +33,4 @@ local function goto_definition(split_cmd)
 	return handler
 end
 
-vim.lsp.handlers["textDocument/definition"] = goto_definition("vsplit")
+-- vim.lsp.handlers["textDocument/definition"] = goto_definition("vsplit")

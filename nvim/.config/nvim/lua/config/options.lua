@@ -2,6 +2,18 @@ vim.loader.enable()
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		-- Adjust 'iskeyword' with a more direct approach
+		vim.opt_local.iskeyword = "@,48-57,_,:,." -- Adjust this to your needs
+		vim.b.vimtex_enabled = 1
+	end,
+})
+
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+
 vim.api.nvim_create_autocmd("BufLeave", {
 	pattern = { "*.md" },
 	callback = function()

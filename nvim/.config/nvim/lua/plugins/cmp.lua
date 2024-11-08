@@ -8,8 +8,10 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets", -- optional, provides extra snippets
+		"micangl/cmp-vimtex",
+		"Snikimonkd/cmp-go-pkgs",
 	},
-	       
+
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
@@ -59,6 +61,8 @@ return {
 				{ name = "path" },
 				{ name = "cmdline" },
 				{ name = "buffer" },
+				{ name = "vimtex" },
+				{ name = "go_pkgs" },
 			},
 		})
 
@@ -71,7 +75,7 @@ return {
 		})
 
 		-- Optionally, for `/` (search) completion
-		cmp.setup.cmdline("/", {
+		cmp.setup.cmdline({ "/", "?" }, {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = {
 				{ name = "buffer" },
