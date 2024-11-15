@@ -95,8 +95,9 @@ return {
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 		local servers = {
-			clangd = {},
-			gopls = {},
+			gopls = {
+				mason = false,
+			},
 			-- pyright = {},
 			-- rust_analyzer = {},
 			-- Some languages (like typescript) have entire language plugins that can be useful:
